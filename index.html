@@ -8,11 +8,17 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta property="og:url"           content="https://armshare.github.io/covid-19-view" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Covid-19" />
-    <meta property="og:description"   content="Report Covid-19 in Thailand" />
-    <meta property="og:image"         content="https://armshare.github.io/covid-19-view/image.png" />
+    <meta
+      property="og:url"
+      content="https://armshare.github.io/covid-19-view"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Covid-19" />
+    <meta property="og:description" content="Report Covid-19 in Thailand" />
+    <meta
+      property="og:image"
+      content="https://armshare.github.io/covid-19-view/image.png"
+    />
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -40,7 +46,7 @@
           <div class="card-deck">
             <div class="card text-white bg-primary mb-3 col-md-12">
               <div class="card-header">
-                จำนวนผู้ติดเชื้อทั้งหมด 
+                จำนวนผู้ติดเชื้อทั้งหมด
               </div>
               <div class="card-body text-center">
                 <h1 id="Confirmed"></h1>
@@ -96,8 +102,19 @@
           </div>
         </div>
       </div>
-      <div class="fb-share-button" data-href="https://armshare.github.io/covid-19-view/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Farmshare.github.io%2Fcovid-19-view%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-   
+      <div
+        class="fb-share-button"
+        data-href="https://armshare.github.io/covid-19-view/"
+        data-layout="button_count"
+        data-size="large"
+      >
+        <a
+          target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Farmshare.github.io%2Fcovid-19-view%2F&amp;src=sdkpreparse"
+          class="fb-xfbml-parse-ignore"
+          >Share</a
+        >
+      </div>
     </div>
     <footer class="footer navbar-fixed-bottom">
       <div class="container text-right  text-muted small ">
@@ -124,13 +141,17 @@
 
     <script src="./main.js"></script>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
+    <script>
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-    
+      })(document, "script", "facebook-jssdk");
+    </script>
   </body>
 </html>
