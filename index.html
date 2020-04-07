@@ -20,17 +20,38 @@
       content="https://armshare.github.io/covid-19-view/image.png"
     />
     <!-- Bootstrap CSS -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
+    /> -->
+    <link
+      rel="stylesheet"
+      href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.bootstrap4.min.css"
+    />
+
+    <!-- https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css -->
     <style>
       footer {
         position: fixed;
         bottom: 0;
         width: 100%;
+      }
+      .dataTables_wrapper .dataTables_paginate {
+        float: none !important;
       }
     </style>
   </head>
@@ -60,14 +81,14 @@
           </div>
         </div>
       </div>
-      <div class="row mb-2">
+      <div class="row mb-4">
         <div class="col-sm-4">
           <div class="card-deck">
-            <div class="card text-warning border-warning ">
-              <div class="card-header bg-warning text-white ">
+            <div class="card text-warning border-warning">
+              <div class="card-header bg-warning text-white">
                 จำนวนผู้ได้รับการรักษา
               </div>
-              <div class="card-body text-center ">
+              <div class="card-body text-center">
                 <h1 id="Hospitalized"></h1>
                 <p>(เพิ่มขึ้น <span id="NewHospitalized"></span> คน)</p>
               </div>
@@ -76,8 +97,8 @@
         </div>
         <div class="col-sm-4">
           <div class="card-deck">
-            <div class="card text-danger border-danger   ">
-              <div class="card-header  bg-danger text-white ">
+            <div class="card text-danger border-danger">
+              <div class="card-header bg-danger text-white">
                 จำนวนผู้เสียชีวิต
               </div>
               <div class="card-body text-center">
@@ -90,8 +111,8 @@
 
         <div class="col-sm-4">
           <div class="card-deck">
-            <div class="card text-success border-success ">
-              <div class="card-header  bg-success text-white ">
+            <div class="card text-success border-success">
+              <div class="card-header bg-success text-white">
                 จำนวนผู้ติดเชื้อที่หายแล้ว
               </div>
               <div class="card-body text-center">
@@ -102,6 +123,12 @@
           </div>
         </div>
       </div>
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <table id="tableSummary"></table>
+        </div>
+      </div>
+
       <div
         class="fb-share-button"
         data-href="https://armshare.github.io/covid-19-view/"
@@ -117,15 +144,20 @@
       </div>
     </div>
     <footer class="footer navbar-fixed-bottom">
-      <div class="container text-right  text-muted small ">
+      <div class="container text-right text-muted small">
         API by <span id="Source"></span>
       </div>
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
     <script
@@ -138,11 +170,19 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
 
     <script src="./main.js"></script>
+
     <div id="fb-root"></div>
     <script>
-      (function(d, s, id) {
+      (function (d, s, id) {
         var js,
           fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
