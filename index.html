@@ -53,6 +53,12 @@
       .dataTables_wrapper .dataTables_paginate {
         float: none !important;
       }
+      .dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0% !important;
+    }
     </style>
   </head>
   <body>
@@ -125,7 +131,22 @@
       </div>
       <div class="row mb-2">
         <div class="col-sm-6">
-          <table id="tableSummary"></table>
+          <div class="card-deck">
+            
+            <div class="card mb-3 col-md-12">
+              <div class="card-header">
+                จำนวนผู้ติดเชื้อในแต่ละจังหวัด
+              </div>
+              <div class="card-body">
+                <table
+                id="tableSummary"
+                class="table table-striped table-bordered"
+                style="width: 100%;"
+              ></table>
+              </div>
+              
+            </div>
+          </div>
         </div>
       </div>
 

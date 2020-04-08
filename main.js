@@ -16,8 +16,8 @@
       buttons: ["excel", "pdf"],
       data: data,
       lengthChange: false,
-      columns: [{ data: "label" }, { data: "value" }]
-      
+      columns: [{ data: "label" }, { data: "value" }],
+      "pagingType": "numbers"
     });
   
     table.buttons().container()
