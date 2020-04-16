@@ -11,19 +11,56 @@
     ).then((res) => res.json());
   }
 
+  async function getCase() {
+    return await fetch(
+      `https://covid19.th-stat.com/api/open/cases`
+    ).then((res) => res.json());
+  }
+
   function initialTable(data) {
+    console.log(data);
     let table = $("#tableSummary").DataTable({
       buttons: ["excel", "pdf"],
       data: data,
       lengthChange: false,
       columns: [{ data: "label" }, { data: "value" }],
-      "pagingType": "numbers"
+      pagingType: "numbers",
     });
-  
-    table.buttons().container()
-        .appendTo( '#tableSummary_wrapper .col-md-6:eq(0)' );
 
-     // console.log()
+    table
+      .buttons()
+      .container()
+      .appendTo("#tableSummary_wrapper .col-md-6:eq(0)");
+
+    // console.log()
+  }
+
+  function initialTableCase(data) {
+    console.log("initialTableCase ", data);
+    let table = $("#tableCase").DataTable({
+      buttons: ["excel", "pdf"],
+      data: data,
+      lengthChange: false,
+      columns: [
+        { data: "ConfirmDate" },
+        { data: "Gender" },
+        { data: "Age" },
+        { data: "GenderEn" },
+        { data: "Nation" },
+        { data: "NationEn" },
+        { data: "Province" },
+        { data: "ProvinceEn" },
+        { data: "District" },
+        { data: "Detail" }
+      ],
+      pagingType: "numbers",
+    });
+
+    table
+      .buttons()
+      .container()
+      .appendTo("#tableCase_wrapper .col-md-6:eq(0)");
+
   }
 
   function run() {
@@ -37,6 +74,17 @@
           }
         }
       }
+    });
+
+    getCase().then((res) => {
+      let dataSourceCase = [];
+      
+      for (const i in res.Data) {
+       
+        dataSourceCase.push(res.Data[i]);
+      }
+      initialTableCase(dataSourceCase);
+     
     });
 
     getSummary().then((res) => {
@@ -53,7 +101,8 @@
       }
       console.log("dataSourceSummary  ", dataSourceSummary);
       initialTable(dataSourceSummary);
-      console.log("dataSummary ",  $("#tableSummary_wrapper").children().last());
+
+      console.log("dataSummary ", $("#tableSummary_wrapper").children().last());
     });
     //console.log("dataSummary ", dataSummary);
   }
